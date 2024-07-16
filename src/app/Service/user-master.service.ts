@@ -20,7 +20,7 @@ export class UserMasterService {
   }
 
   deleteUser(id:number): Observable<any>{
-    return this.http.delete(this.baseurl+`/getUserMaster/${id}`);
+    return this.http.delete(this.baseurl+`/deleteUser/${id}`);
   }
 
   updateUser(id:number,data:any) : Observable<any>{
