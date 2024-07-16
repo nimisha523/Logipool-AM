@@ -2,7 +2,6 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit , ViewChild} from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-// import { Router } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatToolbar } from '@angular/material/toolbar';
@@ -21,7 +20,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 @Component({
   selector: 'app-user-master',
   standalone: true,
-  imports: [FormsModule, CommonModule,MatPaginator,MatSort,MatInputModule,MatButtonModule,ReactiveFormsModule,MatSelectModule,MatToolbar,MatIconModule,MatTableModule,MatSnackBarModule,MatSlideToggleModule],
+  imports: [FormsModule, CommonModule,MatPaginator,MatSort,MatInputModule,MatButtonModule,ReactiveFormsModule,MatSelectModule,MatToolbar,MatIconModule,MatTableModule,MatSnackBarModule,MatSlideToggleModule,AddUserComponent],
   templateUrl: './user-master.component.html',
   styleUrl: './user-master.component.css'
 })
@@ -41,10 +40,11 @@ export class UserMasterComponent implements OnInit{
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(private _dialog:MatDialog,private usermasterService:UserMasterService,private coreService:CoreService){}
+  constructor(private _dialog:MatDialog,private usermasterService:UserMasterService,private coreService:CoreService,private fb :FormBuilder){}
 
   ngOnInit(): void {
       this.getUserList();
+        
   }
 
   openAddEditUserForm(){
@@ -96,18 +96,18 @@ export class UserMasterComponent implements OnInit{
     }
   }
 
-  openEditForm(data: any){
-   const dialogRef = this._dialog.open(AddUserComponent,{
+  openEditForm(data: any) {
+    const dialogRef = this._dialog.open(AddUserComponent, {
       data: data,
     });
-
-    dialogRef.afterClosed().
-    subscribe({
-      next: (val)=>{
-       if(val){
-        this.getUserList();
-       }
+  
+    dialogRef.afterClosed().subscribe({
+      next: (val) => {
+        if (val) {
+          this.getUserList();
+        }
       },
     });
   }
+  
 }

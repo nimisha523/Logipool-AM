@@ -32,61 +32,50 @@ export class AddUserComponent implements OnInit{
 
   constructor(
     private fb:FormBuilder , 
-    private usermasterService:UserMasterService, 
+    private userMasterService:UserMasterService, 
     private dialogRef: MatDialogRef<AddUserComponent>,
     private coreService:CoreService,
     @Inject(MAT_DIALOG_DATA) public data: any
   ){
     this.userForm = this.fb.group({
-      firstName:'',
-      lastName:'',
-      address:'',
-      phoneNo:'',
-      email:'',
-      subject:''
-
-    })
+      firstName: ['', [Validators.required]],
+      lastName: ['', [Validators.required]],
+      address: ['', [Validators.required ]],
+      phoneNo: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      email: ['', [Validators.required, Validators.email]],
+      subject: ['', [Validators.required]]
+    });
   }
 
   ngOnInit(): void {
+    if (this.data) {
       this.userForm.patchValue(this.data);
-      this.userForm = this.fb.group({
-        firstName: ['',[Validators.required]],
-        lastName: ['',[Validators.required]],
-        address: ['', [Validators.required, Validators.minLength(3)]],
-        phoneNo: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
-        email: ['', [Validators.required, Validators.email]]
-      });
+    }
   }
 
-  onFormSubmit(){
-    if(this.userForm.valid){
-      if(this.data){
-        this.usermasterService.updateUser(this.data.id, this.userForm.value).
-        subscribe({
-           next:(val:any) => {
-            //  alert('User detailed updated');
-             this.coreService.openSnackBar('User detailed updated');
-             this.dialogRef.close(true);
+  onFormSubmit() {
+    if (this.userForm.valid) {
+      if (this.data) {
+        this.userMasterService.updateUser(this.data.id, this.userForm.value).subscribe({
+          next: (val: any) => {
+            this.coreService.openSnackBar('User details updated');
+            this.dialogRef.close(true);
           },
-          error: (err:any) => {
-              console.log(err);
+          error: (err: any) => {
+            console.log(err);
           }
         });
-      }else{
-        this.usermasterService.addUser(this.userForm.value).
-        subscribe({
-           next:(val:any) => {
-            //  alert('User added successfully...');
-             this.coreService.openSnackBar('User added successfully...');
-             this.dialogRef.close(true);
+      } else {
+        this.userMasterService.addUser(this.userForm.value).subscribe({
+          next: (val: any) => {
+            this.coreService.openSnackBar('User added successfully');
+            this.dialogRef.close(true);
           },
-          error: (err:any) => {
-              console.log(err);
+          error: (err: any) => {
+            console.log(err);
           }
         });
       }
-      
     }
   }
 }
