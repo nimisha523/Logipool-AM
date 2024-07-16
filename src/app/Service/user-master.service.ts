@@ -7,23 +7,23 @@ import { Observable } from 'rxjs';
 })
 export class UserMasterService {
 
-  // baseurl="http://localhost:8080";
+  baseurl="http://localhost:8080/UserMaster";
 
   constructor(private http:HttpClient) { }
 
   addUser(data:any) : Observable<any>{
-    return this.http.post('http://localhost:3000/users',data);
+    return this.http.post(this.baseurl+`/addUserMaster`,data);
   }
 
   getUserList() : Observable<any>{
-    return this.http.get('http://localhost:3000/users');
+    return this.http.get(this.baseurl+`/getUserMaster`);
   }
 
   deleteUser(id:number): Observable<any>{
-    return this.http.delete(`http://localhost:3000/users/${id}`);
+    return this.http.delete(this.baseurl+`/getUserMaster/${id}`);
   }
 
   updateUser(id:number,data:any) : Observable<any>{
-    return this.http.put(`http://localhost:3000/users/${id}`,data);
+    return this.http.put(this.baseurl+`updateUserMaster/${id}`,data);
   }
 }

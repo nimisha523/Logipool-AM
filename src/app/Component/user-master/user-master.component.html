@@ -1,33 +1,3 @@
-<!-- <form #UserForm="ngForm" (ngSubmit)="UserMaster(UserForm)">
-    <div class="form-group">
-        <label for="">Name:</label>
-        <input type="text" class="form-control" placeholder="Enter Name" name="name" (ngModel)="name" #name>
-    </div>
-    <div class="form-group">
-        <label for="">Email:</label>
-        <input type="text" class="form-control" placeholder="Enter Email" name="email" (ngModel)="email" #email>
-    </div>
-    <div class="form-group">
-        <label for="">Mobile Number:</label>
-        <input type="number" class="form-control" placeholder="Enter Mobile Number" name="mobileno" (ngModel)="mobileno" #mobileno>
-    </div>
-    <br>
-    <div class="form-group">
-        <label for="">Password:</label>
-        <input type="text" class="form-control" placeholder="Enter Password" name="password" (ngModel)="password" #password>
-    </div>
-    <br>
-    <div class="form-group">
-        <label for="">Subject:</label>
-        <input type="text" class="form-control" placeholder="Enter Subject" name="subject" (ngModel)="subject" #subject>
-    </div>
-    <br>
-    <button class="btn btn-success">Add</button>&nbsp;&nbsp;
-    <button class="btn btn-success">Update </button>&nbsp;&nbsp;
-    <button class="btn btn-success">Delete</button>&nbsp;&nbsp;
-    <button class="btn btn-success">view</button>&nbsp;&nbsp;
-</form> -->
-
 <mat-toolbar>
     <span>Users</span>
     <span class="example-spacer"></span>
@@ -55,14 +25,14 @@
         </ng-container>
   
         <!-- Progress Column -->
-        <ng-container matColumnDef="firstName">
+        <ng-container matColumnDef="fname">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
-          <td mat-cell *matCellDef="let row"> {{row.firstName}}</td>
+          <td mat-cell *matCellDef="let row"> {{row.fname}}</td>
         </ng-container>
   
-        <ng-container matColumnDef="lastName">
+        <ng-container matColumnDef="lname">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
-          <td mat-cell *matCellDef="let row"> {{row.lastName}}</td>
+          <td mat-cell *matCellDef="let row"> {{row.lname}}</td>
         </ng-container>
   
         <ng-container matColumnDef="address">
@@ -70,9 +40,9 @@
           <td mat-cell *matCellDef="let row"> {{row.address}}</td>
         </ng-container>
   
-        <ng-container matColumnDef="phoneNo">
+        <ng-container matColumnDef="mobileNo">
           <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone </th>
-          <td mat-cell *matCellDef="let row"> {{row.phoneNo}}</td>
+          <td mat-cell *matCellDef="let row"> {{row.mobileNo}}</td>
         </ng-container>
   
         <ng-container matColumnDef="email">

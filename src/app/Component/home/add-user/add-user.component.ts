@@ -38,10 +38,10 @@ export class AddUserComponent implements OnInit{
     @Inject(MAT_DIALOG_DATA) public data: any
   ){
     this.userForm = this.fb.group({
-      firstName: ['', [Validators.required]],
-      lastName: ['', [Validators.required]],
+      fname: ['', [Validators.required]],
+      lname: ['', [Validators.required]],
       address: ['', [Validators.required ]],
-      phoneNo: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      mobileNo: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       email: ['', [Validators.required, Validators.email]],
       subject: ['', [Validators.required]]
     });

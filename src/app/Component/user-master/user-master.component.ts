@@ -27,10 +27,10 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 export class UserMasterComponent implements OnInit{
 
   displayedColumns: string[] = [
-    'firstName',
-    'lastName',
+    'fname',
+    'lname',
     'address',
-    'phoneNo',
+    'mobileNo',
     'email',
     'subject',
     'action',
@@ -66,6 +66,7 @@ export class UserMasterComponent implements OnInit{
           this.dataSource = new MatTableDataSource(res);
           this.dataSource.sort = this.sort;
           this.dataSource.paginator = this.paginator;
+          console.log(res);
         },
         error: (err)=>{
           console.log(err);
