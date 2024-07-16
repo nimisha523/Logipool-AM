@@ -1,0 +1,31 @@
+{
+  "users": [
+    {
+      "id": "13d6",
+      "firstName": "nimisha",
+      "lastName": "wadkar",
+      "address": "pune",
+      "phoneNo": "8965420",
+      "email": "asxdcf",
+      "subject": "DotNet"
+    },
+    {
+      "id": "0a87",
+      "firstName": "divya",
+      "lastName": "patil",
+      "address": "mumbai",
+      "phoneNo": "89654532",
+      "email": "Zxcvffvgb",
+      "subject": "Java"
+    },
+    {
+      "id": "e08a",
+      "firstName": "aditi",
+      "lastName": "gulave",
+      "address": "mumbai",
+      "phoneNo": "7889654132",
+      "email": "sdcfv",
+      "subject": "Python"
+    }
+  ]
+}
