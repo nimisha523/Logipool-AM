@@ -1,22 +1,13 @@
 {
   "users": [
     {
-      "firstName": "Nikhil",
-      "lastName": "patil",
+      "firstName": "Mahima ",
+      "lastName": "Kasture",
       "address": "a",
       "phoneNo": "4545455422",
-      "email": "nikhilpatil@gmail.com",
+      "email": "mahima@gmail.com",
       "subject": "Java",
       "id": "0a87"
-    },
-    {
-      "firstName": "Nikhil",
-      "lastName": "Patil",
-      "address": "Snagli,Maharashtra",
-      "phoneNo": "0",
-      "email": "nikhilpatil22599@gmail.com",
-      "subject": "Java",
-      "id": "d68b"
     }
   ]
 }

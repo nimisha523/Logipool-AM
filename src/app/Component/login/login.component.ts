@@ -28,6 +28,7 @@ export class LoginComponent {
         this.adminService.Login(this.email);
         alert("login successful");
         this.router.navigate(['/main']);
+        console.log("successfull...")
       }
       else{
         alert("Invalid Email or Password");
