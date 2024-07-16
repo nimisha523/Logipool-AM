@@ -1,15 +1,6 @@
 {
   "users": [
     {
-      "id": "13d6",
-      "firstName": "nimisha",
-      "lastName": "wadkar",
-      "address": "pune",
-      "phoneNo": "8965420",
-      "email": "asxdcf",
-      "subject": "DotNet"
-    },
-    {
       "id": "0a87",
       "firstName": "divya",
       "lastName": "patil",

@@ -5,11 +5,12 @@ import { MatToolbar } from '@angular/material/toolbar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {  MatSelectModule } from '@angular/material/select';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { UserMasterService } from '../../../Service/user-master.service';
 import { MAT_DIALOG_DATA, MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
 import { CoreService } from '../../../core/core.service';
+
 
 @Component({
   selector: 'app-add-user',
@@ -49,6 +50,13 @@ export class AddUserComponent implements OnInit{
 
   ngOnInit(): void {
       this.userForm.patchValue(this.data);
+      this.userForm = this.fb.group({
+        firstName: ['',[Validators.required]],
+        lastName: ['',[Validators.required]],
+        address: ['', [Validators.required, Validators.minLength(3)]],
+        phoneNo: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+        email: ['', [Validators.required, Validators.email]]
+      });
   }
 
   onFormSubmit(){
