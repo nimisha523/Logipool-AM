@@ -24,6 +24,6 @@ export class UserMasterService {
   }
 
   updateUser(id:number,data:any) : Observable<any>{
-    return this.http.put(this.baseurl+`updateUserMaster/${id}`,data);
+    return this.http.put(this.baseurl+`/updateUserMaster/${id}`,data);
   }
 }
