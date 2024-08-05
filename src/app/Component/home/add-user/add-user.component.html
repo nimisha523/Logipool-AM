@@ -1,0 +1,67 @@
+
+<div class="main">
+<div mat-dialog-title>
+    <h1>User Form</h1>
+</div>
+
+<form [formGroup]="userForm" (ngSubmit)="onFormSubmit()">
+
+<div mat-dialog-content class="content">
+    <div class="row">
+        <mat-form-field appearance="outline" class="full-width">
+            <mat-label>First name</mat-label>
+            <input matInput type="text" placeholder="Ex. John" formControlName="fname" name="fname" #fname (ngModel)="fname">
+            <mat-error *ngIf="userForm.get('fname')?.hasError('required')">
+              only alphabets are allowed..
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline" class="full-width">
+            <mat-label>Last name</mat-label>
+            <input matInput placeholder="Ex. Alexander" formControlName="lname" name="lname" #lname (ngModel)="lname">
+            <mat-error *ngIf="userForm.get('lname')?.hasError('required')">
+              only alphabets are allowed..
+            </mat-error>
+          </mat-form-field>
+    </div>
+    <div class="row">
+          <mat-form-field appearance="outline">
+            <mat-label>Address</mat-label>
+            <input matInput type="text" placeholder="Ex. Pune" formControlName="address" name="address" #address (ngModel)="address">
+            <mat-error *ngIf="userForm.get('fname')?.hasError('required')">
+              Address is required.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Phone number</mat-label>
+            <input matInput type="text" placeholder="Ex. 91********" formControlName="mobileNo"  name="mobileNo" #mobileNo (ngModel)="mobileNo" >
+            <mat-error *ngIf="userForm.get('fname')?.hasError('required')">
+              Mobile Number is reuired.
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field appearance="outline">
+            <mat-label>Email</mat-label>
+            <input matInput type="email" placeholder="Ex. john@gmail.com" formControlName="email" name="email" #email (ngModel)="email"> 
+            <mat-error *ngIf="userForm.get('fname')?.hasError('required')">
+              email is required.
+            </mat-error>
+          </mat-form-field>
+    </div>
+    <div class="row">
+        <mat-form-field appearance="outline">
+            <mat-label>Subject</mat-label>
+            <mat-select formControlName="subject" name="subject" #subject (ngModel)="subject">
+                <mat-option *ngFor="let val of user" [value]="val">
+                    {{val}}
+                </mat-option>
+            </mat-select>
+           
+          </mat-form-field>
+    </div>
+</div>
+<div mat-dialog-actions class="action">
+    <button mat-raised-button type="button" [mat-dialog-close]="false">Cancel</button>&nbsp;&nbsp;
+    <button mat-raised-button color="primary" type="submit">{{data ? 'Update' : 'Save'}}</button>
+</div>
+</form>
+</div>
+
